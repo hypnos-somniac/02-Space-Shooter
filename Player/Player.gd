@@ -7,7 +7,7 @@ var speed = 0.1
 var max_speed = 10
 
 onready var Bullet = load("res://Player/Bullet.tscn")
-var nose = Vector2(0,-60)
+var nose = Vector2(0,-80)
 
 func _ready():
 	pass

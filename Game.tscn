@@ -1,14 +1,64 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/PNG/playerShip1_blue.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.gd" type="Script" id=2]
 [ext_resource path="res://Assets/PNG/Effects/fire19.png" type="Texture" id=3]
 [ext_resource path="res://Assets/IMG_1636.PNG" type="Texture" id=4]
+[ext_resource path="res://UI/HUD.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Menu.gd" type="Script" id=6]
+[ext_resource path="res://Asteroid/Asteroid.tscn" type="PackedScene" id=7]
 
 [node name="Game" type="Node2D"]
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 4 )
+
+[node name="Asteroid_Container" type="Node2D" parent="."]
+
+[node name="Asteroid" parent="Asteroid_Container" instance=ExtResource( 7 )]
+position = Vector2( 150, 462 )
+
+[node name="Asteroid9" parent="Asteroid_Container" instance=ExtResource( 7 )]
+position = Vector2( 150, 462 )
+
+[node name="Asteroid2" parent="Asteroid_Container" instance=ExtResource( 7 )]
+position = Vector2( 649, 256 )
+
+[node name="Asteroid13" parent="Asteroid_Container" instance=ExtResource( 7 )]
+position = Vector2( 649, 256 )
+
+[node name="Asteroid15" parent="Asteroid_Container" instance=ExtResource( 7 )]
+position = Vector2( 649, 256 )
+
+[node name="Asteroid3" parent="Asteroid_Container" instance=ExtResource( 7 )]
+position = Vector2( 59, -486 )
+
+[node name="Asteroid4" parent="Asteroid_Container" instance=ExtResource( 7 )]
+position = Vector2( 681, -336 )
+
+[node name="Asteroid10" parent="Asteroid_Container" instance=ExtResource( 7 )]
+position = Vector2( 681, -336 )
+
+[node name="Asteroid5" parent="Asteroid_Container" instance=ExtResource( 7 )]
+position = Vector2( -774, 734 )
+
+[node name="Asteroid8" parent="Asteroid_Container" instance=ExtResource( 7 )]
+position = Vector2( 603, 691 )
+
+[node name="Asteroid11" parent="Asteroid_Container" instance=ExtResource( 7 )]
+position = Vector2( 603, 691 )
+
+[node name="Asteroid14" parent="Asteroid_Container" instance=ExtResource( 7 )]
+position = Vector2( 603, 691 )
+
+[node name="Asteroid7" parent="Asteroid_Container" instance=ExtResource( 7 )]
+position = Vector2( -424, 318 )
+
+[node name="Asteroid6" parent="Asteroid_Container" instance=ExtResource( 7 )]
+position = Vector2( -567, -369 )
+
+[node name="Asteroid12" parent="Asteroid_Container" instance=ExtResource( 7 )]
+position = Vector2( -567, -369 )
 
 [node name="Player" type="KinematicBody2D" parent="."]
 script = ExtResource( 2 )
@@ -31,10 +81,51 @@ polygon = PoolVector2Array( 0, -41, 13, -41, 19, -14, 34, -4, 39, -7, 48, -12, 5
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
 
-[node name="Border" type="KinematicBody2D" parent="."]
+[node name="Border" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Border"]
 polygon = PoolVector2Array( 1024, -1024, 1024, 1024, -1024, 1024, -1024, -1024, 1022, -1024, 1022, -1039, 1018, -1182, -1253, -1226, -1223, 1516, 1361, 1404, 1137, -1228, 1018, -1182, 1022, -1024 )
 
 [node name="Effects" type="Node2D" parent="."]
-position = Vector2( 1, -46 )
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="UI" instance=ExtResource( 5 )]
+
+[node name="Timer2" type="Timer" parent="UI/HUD"]
+
+[node name="Menu" type="Control" parent="UI"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 6 )
+
+[node name="ColorRect" type="ColorRect" parent="UI/Menu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.137255, 0.176471, 0.376471, 0.490196 )
+
+[node name="Label" type="Label" parent="UI/Menu"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -23.0
+margin_top = -7.0
+margin_right = 23.0
+margin_bottom = 7.0
+text = "Paused"
+
+[node name="Restart" type="Button" parent="UI/Menu"]
+margin_left = 523.0
+margin_top = 344.0
+margin_right = 580.0
+margin_bottom = 364.0
+text = "Restart"
+
+[node name="Quit" type="Button" parent="UI/Menu"]
+margin_left = 444.0
+margin_top = 343.0
+margin_right = 484.0
+margin_bottom = 363.0
+text = "Quit"
