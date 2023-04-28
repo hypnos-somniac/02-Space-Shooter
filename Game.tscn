@@ -115,17 +115,3 @@ margin_top = -7.0
 margin_right = 23.0
 margin_bottom = 7.0
 text = "Paused"
-
-[node name="Restart" type="Button" parent="UI/Menu"]
-margin_left = 523.0
-margin_top = 344.0
-margin_right = 580.0
-margin_bottom = 364.0
-text = "Restart"
-
-[node name="Quit" type="Button" parent="UI/Menu"]
-margin_left = 444.0
-margin_top = 343.0
-margin_right = 484.0
-margin_bottom = 363.0
-text = "Quit"
